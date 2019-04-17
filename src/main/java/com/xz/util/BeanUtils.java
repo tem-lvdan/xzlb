@@ -262,7 +262,7 @@ public class BeanUtils {
         PropertyDescriptor[] propertyDescriptors = beanInfo.getPropertyDescriptors();
         for (PropertyDescriptor property : propertyDescriptors) {
             String propertyName = property.getName();
-            if (!propertyName.equals("class")) {
+            if (!"class".equals(propertyName)) {
                 Method readMethod = property.getReadMethod();
                 Object result = null;
                 try {

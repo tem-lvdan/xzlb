@@ -52,7 +52,7 @@ public class SysUserImpl implements ISysUser {
         bopSysUserVo.setLoginTime(new Date());
         return iSysUserSV.updateSysUserById(bopSysUserVo);
     }
-
+    @Override
     public SysUserRes selectSysUserById(String id) {
         LOGGER.info("SysUserImpl.selectSysUserById :" + JSON.toJSONString(id));
         BopSysUser bopSysUser = iSysUserSV.selectSysUserById(id);

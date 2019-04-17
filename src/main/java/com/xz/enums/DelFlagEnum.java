@@ -5,8 +5,17 @@ package com.xz.enums;
  * @version 2019/2/21
  */
 public enum DelFlagEnum {
+    /**
+     * 正常
+     */
     NORMAL(0, "正常"),
+    /**
+     * 删除
+     */
     DELETE(1, "删除"),
+    /**
+     * 审核
+     */
     AUDIT(2, "审核");
     private int value;
     private String desc;

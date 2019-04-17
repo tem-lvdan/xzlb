@@ -21,7 +21,7 @@ public class SysOfficeImpl implements ISysOffice {
 
     @Autowired
     private ISysOfficeSV iSysOfficeSV;
-
+    @Override
     public BopSysOfficeListResponse querySysOfficeAllListForTree() {
         LOGGER.info("SysOfficeImpl.querySysOfficeAllListForTree");
         BopSysOfficeListResponse bopSysOfficeListResponse = null;
@@ -33,7 +33,7 @@ public class SysOfficeImpl implements ISysOffice {
         LOGGER.info("SysOfficeImpl.querySysOfficeAllListForTree.response" + JSON.toJSONString(bopSysOfficeListResponse));
         return bopSysOfficeListResponse;
     }
-
+    @Override
     public List<BopSysOfficeListResponse> querySysOfficeList() {
         LOGGER.info("SysOfficeImpl.querySysOfficeList");
         List<BopSysOfficeListResponse> bopSysOfficeListResponseList = null;

@@ -70,6 +70,7 @@ public class SysOfficeSVImpl implements ISysOfficeSV {
     /**
      * 查询机构(树形结构)
      */
+    @Override
     public BopSysOfficeListResponse querySysOfficeAllListForTree(){
 
         BopSysOfficeExample example = new BopSysOfficeExample();
@@ -119,6 +120,7 @@ public class SysOfficeSVImpl implements ISysOfficeSV {
     /**
      * 查询机构(平行结构)
      */
+    @Override
     public List<BopSysOfficeListResponse> querySysOfficeList(){
 
         BopSysOfficeExample example = new BopSysOfficeExample();

@@ -30,7 +30,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils
 	public static final String YYYYMMDD = "yyyyMMdd";
 	public static final String YYYYMMDDHHMMSS = "yyyyMMddHHmmss";
 	public static final String YYYYMMDDHHMMSSSSS = "yyyyMMddHHmmssSSS";
-	public static final String cn_YYYY_MM_DD = "yyyy年MM月dd日";
+	public static final String CN_YYYY_MM_DD = "yyyy年MM月dd日";
 	public static final String YYYY_MM_DD_HH_MM = "yyyy-MM-dd HH:mm";
 	public static final String YYYY_MM_DD_HH = "yyyy-MM-dd HH";
 	public static final String HH_MM_SS = "HH:mm:ss";
@@ -178,7 +178,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils
      */
     public static long pastDays(Date date)
     {
-        long t = new Date().getTime() - date.getTime();
+        long t = System.currentTimeMillis() - date.getTime();
         return t / (24 * 60 * 60 * 1000);
     }
 
@@ -190,7 +190,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils
      */
     public static long pastHour(Date date)
     {
-        long t = new Date().getTime() - date.getTime();
+        long t = System.currentTimeMillis() - date.getTime();
         return t / (60 * 60 * 1000);
     }
 
@@ -202,7 +202,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils
      */
     public static long pastMinutes(Date date)
     {
-        long t = new Date().getTime() - date.getTime();
+        long t = System.currentTimeMillis() - date.getTime();
         return t / (60 * 1000);
     }
     
@@ -283,7 +283,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils
 
     public static Date parseDate(long timeStamp)
     {	
-    	if(timeStamp == 0l){
+    	if(timeStamp == 0L){
     		return null;
     	}
         SimpleDateFormat format = new SimpleDateFormat(YYYY_MM_DD_HH_MM_SS);
@@ -301,7 +301,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils
     }
     
     public static Date parseDateFormUnix(long timeStamp, String pattern){	
-    	if(timeStamp == 0l){
+    	if(timeStamp == 0L){
     		return null;
     	}
         SimpleDateFormat format = new SimpleDateFormat(pattern);
@@ -428,7 +428,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils
 	        Calendar c2 = Calendar.getInstance();
 	        c1.setTime(d1);
 	        c2.setTime(d2);
-	        if(c1.getTimeInMillis() < c2.getTimeInMillis()) return 0;
+	        if(c1.getTimeInMillis() < c2.getTimeInMillis()){ return 0;}
 	        int year1 = c1.get(Calendar.YEAR);
 	        int year2 = c2.get(Calendar.YEAR);
 	        int month1 = c1.get(Calendar.MONTH);
@@ -438,10 +438,10 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils
 	        // 获取年的差值 假设 d1 = 2015-8-16  d2 = 2011-9-30
 	        int yearInterval = year1 - year2;
 	        // 如果 d1的 月-日 小于 d2的 月-日 那么 yearInterval-- 这样就得到了相差的年数
-	        if(month1 < month2 || month1 == month2 && day1 < day2) yearInterval --;
+	        if(month1 < month2 || month1 == month2 && day1 < day2){ yearInterval --;}
 	        // 获取月数差值
 	        int monthInterval =  (month1 + 12) - month2  ;
-	        if(day1 < day2) monthInterval --;
+	        if(day1 < day2){ monthInterval --;}
 	        monthInterval %= 12;
 	        return yearInterval * 12 + monthInterval;
 	 }

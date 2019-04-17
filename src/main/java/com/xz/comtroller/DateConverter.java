@@ -14,7 +14,7 @@ public class DateConverter implements Converter<String, Date> {
     /**
      * 定义常量
      */
-    private static final String formatString[]={"yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm", "yyyy-MM-dd" ,"yyyy年MM月dd日","yyyy年MM月"};
+    private static final String FORMAT_STRING[]={"yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm", "yyyy-MM-dd" ,"yyyy年MM月dd日","yyyy年MM月"};
 
 
     @Override
@@ -23,8 +23,8 @@ public class DateConverter implements Converter<String, Date> {
         Date resultDate=null;
 
         //尝试转换日期类型
-        for(int i=0;i<formatString.length;i++){
-            SimpleDateFormat dateFormat = new SimpleDateFormat(formatString[i]);
+        for(int i=0;i<FORMAT_STRING.length;i++){
+            SimpleDateFormat dateFormat = new SimpleDateFormat(FORMAT_STRING[i]);
             dateFormat.setLenient(false);
             try {
                 //转换成功则终止转换

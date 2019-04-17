@@ -190,7 +190,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 		temp_result = temp_result.replaceAll("<([a-zA-Z]+)[^<>]*>(.*?)</\\1>",
 				"$2");
 		// 用正则表达式取出标记
-		Pattern p = Pattern.compile("<([a-zA-Z]+)[^<>]*>");
+		Pattern p = Pattern.compile(STRING);
 		Matcher m = p.matcher(temp_result);
 		List<String> endHTML = Lists.newArrayList();
 		while (m.find()) {
@@ -204,6 +204,8 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 		}
 		return result.toString();
 	}
+
+	private static final String STRING = "<([a-zA-Z]+)[^<>]*>";
 	
 	/**
 	 * 转换为Double类型
@@ -362,8 +364,9 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
     public static String parseAscii(String str){
         StringBuilder sb=new StringBuilder();
         byte[] bs=str.getBytes();
-        for(int i=0;i<bs.length;i++)
-            sb.append(toHex(bs[i]));
+        for(int i=0;i<bs.length;i++) {
+			sb.append(toHex(bs[i]));
+		}
         return sb.toString();
     }
     

@@ -228,6 +228,7 @@ public class SysUserSVImpl implements ISysUserSV {
      * @param sysUserDeleteRequest
      * @return
      */
+    @Override
     public Integer deleteUserSysById(SysUserDeleteRequest sysUserDeleteRequest){
         //进行用户删除操作，更新状态
         BopSysUser record = new BopSysUser();

@@ -46,8 +46,9 @@ public class ControllerExceptionHandler {
         Map error = new HashMap();
         List<FieldError> fieldErrors = e.getFieldErrors();
         for (FieldError fieldError : fieldErrors) {
-            if (error.containsKey(fieldError.getField()))
+            if (error.containsKey(fieldError.getField())) {
                 continue;
+            }
             error.put(fieldError.getField(), fieldError.getDefaultMessage());
         }
         FastJsonJsonView view = new FastJsonJsonView();
@@ -70,8 +71,9 @@ public class ControllerExceptionHandler {
         Map error = new HashMap();
         List<FieldError> fieldErrors = e.getBindingResult().getFieldErrors();
         for (FieldError fieldError : fieldErrors) {
-            if (error.containsKey(fieldError.getField()))
+            if (error.containsKey(fieldError.getField())) {
                 continue;
+            }
             error.put(fieldError.getField(), fieldError.getDefaultMessage());
         }
         FastJsonJsonView view = new FastJsonJsonView();

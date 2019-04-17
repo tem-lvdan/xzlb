@@ -20,13 +20,22 @@ import java.util.Date;
  */
 public class JWTUtil {
 
-    static final Key key = MacProvider.generateKey();
+    static final Key KEY = MacProvider.generateKey();
 
     public static final String AUTHORIZATION = "Authorization";
 
-    public static final String TERMINAL_WEB = "_web"; // web客户端
-    public static final String TERMINAL_MOB = "_mob"; // 手机客户端
-    public static final String AUTHORIZE_PERMS = "_perms"; // 权限集合
+    /**
+     * web客户端
+     */
+    public static final String TERMINAL_WEB = "_web_xzlb";
+    /**
+     * 手机客户端
+     */
+    public static final String TERMINAL_MOB = "_mob_xzlb";
+    /**
+     * 权限集合
+     */
+    public static final String AUTHORIZE_PERMS = "_perms_xzlb";
 
     public static String createJWT(String subject) {
         return JWTUtil.createJWT(subject, null);
